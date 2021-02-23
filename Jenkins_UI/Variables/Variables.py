@@ -11,9 +11,6 @@ command = 'echo "Job triggered at %date% : %time%"'
 title2 = "Demo_Job [Jenkins]"
 title3 = "Invalid username or password"
 
-#secret_key = Crypto@2021
-#Public Key:  CGNb8Q8fS5njBmGInILkTMBqieK19IDu7ncN+sIQkwE=
-#username : admin
-# password : Jenkins@2021
+
 
 
