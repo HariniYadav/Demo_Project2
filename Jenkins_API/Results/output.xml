@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20201201 14:13:33.097" rpa="false">
+<suite id="s1" name="Jenkins Demo" source="C:\Users\HOME\PycharmProjects\Training\Jenkins_API\jenkins_demo.robot">
+<test id="s1-t1" name="Jenkins Demo Test">
+<kw name="Create a session">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>admin</arg>
+<arg>110c5618b416a9c7642c7003f1a59ac36b</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.441" level="INFO">${auth} = ['admin', '110c5618b416a9c7642c7003f1a59ac36b']</msg>
+<status status="PASS" starttime="20201201 14:13:34.441" endtime="20201201 14:13:34.441"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${BASE_URL}</arg>
+<arg>auth=${auth}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:34.441" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080/, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x00000084C5C6F040&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201201 14:13:34.441" endtime="20201201 14:13:34.457"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:34.441" endtime="20201201 14:13:34.457"></status>
+</kw>
+<kw name="Getting the details in Jenkins API page">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>pretty=true</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.457" level="INFO">${params} = {'pretty': 'true'}</msg>
+<status status="PASS" starttime="20201201 14:13:34.457" endtime="20201201 14:13:34.457"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>api/json?</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.598" level="INFO">GET Request : url=http://localhost:8080//api/json?pretty=true 
+ path_url=//api/json?pretty=true 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46MTEwYzU2MThiNDE2YTljNzY0MmM3MDAzZjFhNTlhYzM2Yg=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:34.598" level="INFO">GET Response : url=http://localhost:8080//api/json?pretty=true 
+ status=200, reason=OK 
+ body={
+  "_class" : "hudson.model.Hudson",
+  "assignedLabels" : [
+    {
+      "name" : "master"
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "2nd_Job",
+      "url" : "http://localhost:8080/job/2nd_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Demo_Job",
+      "url" : "http://localhost:8080/job/Demo_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "First_Job",
+      "url" : "http://localhost:8080/job/First_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "RobotFramework_Demo",
+      "url" : "http://localhost:8080/job/RobotFramework_Demo/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Second_Job",
+      "url" : "http://localhost:8080/job/Second_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Test Job",
+      "url" : "http://localhost:8080/job/Test%20Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "test_demo",
+      "url" : "http://localhost:8080/job/test_demo/",
+      "color" : "red"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "third_job",
+      "url" : "http://localhost:8080/job/third_job/",
+      "color" : "blue"
+    }
+  ],
+  "overallLoad" : {
+    
+  },
+  "primaryView" : {
+    "_class" : "hudson.model.AllView",
+    "name" : "all",
+    "url" : "http://localhost:8080/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : -1,
+  "unlabeledLoad" : {
+    "_class" : "jenkins.model.UnlabeledLoadStatistics"
+  },
+  "url" : "http://localhost:8080/",
+  "useCrumbs" : true,
+  "useSecurity" : true,
+  "views" : [
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "First_PipeLine",
+      "url" : "http://localhost:8080/view/First_PipeLine/"
+    },
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "Pipeline_Demo",
+      "url" : "http://localhost:8080/view/Pipeline_Demo/"
+    },
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "Second_Pipeline",
+      "url" : "http://localhost:8080/view/Second_Pipeline/"
+    },
+    {
+      "_class" : "hudson.model.AllView",
+      "name" : "all",
+      "url" : "http://localhost:8080/"
+    }
+  ]
+} 
+ </msg>
+<msg timestamp="20201201 14:13:34.598" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:34.473" endtime="20201201 14:13:34.598"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.598" level="INFO">${actual_code} = 200</msg>
+<status status="PASS" starttime="20201201 14:13:34.598" endtime="20201201 14:13:34.598"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20201201 14:13:34.613" endtime="20201201 14:13:34.613"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.613" level="INFO">${body} = {
+  "_class" : "hudson.model.Hudson",
+  "assignedLabels" : [
+    {
+      "name" : "master"
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExe...</msg>
+<status status="PASS" starttime="20201201 14:13:34.613" endtime="20201201 14:13:34.613"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json_output}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.613" level="INFO">${json_output} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'name': 'master'}], 'mode': 'NORMAL', 'nodeDescription': 'the master Jenkins node', 'nodeName': '', 'numExecutors': 2, 'description': None, 'jobs'...</msg>
+<status status="PASS" starttime="20201201 14:13:34.613" endtime="20201201 14:13:34.613"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_output}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:34.629" level="INFO">${json_output} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'name': 'master'}], 'mode': 'NORMAL', 'nodeDescription': 'the master Jenkins node', 'nodeName': '', 'numExecutors': 2, 'description': None, 'jobs'...</msg>
+<status status="PASS" starttime="20201201 14:13:34.629" endtime="20201201 14:13:34.629"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>pretty=true</arg>
+<arg>tree=jobs[name,color]{0,3}</arg>
+</arguments>
+<assign>
+<var>${params1}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.629" level="INFO">${params1} = {'pretty': 'true', 'tree': 'jobs[name,color]{0,3}'}</msg>
+<status status="PASS" starttime="20201201 14:13:34.629" endtime="20201201 14:13:34.629"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>api/json?</arg>
+<arg>params=${params1}</arg>
+</arguments>
+<assign>
+<var>${response1}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.707" level="INFO">GET Request : url=http://localhost:8080//api/json?pretty=true&amp;tree=jobs%5Bname%2Ccolor%5D%7B0%2C3%7D 
+ path_url=//api/json?pretty=true&amp;tree=jobs%5Bname%2Ccolor%5D%7B0%2C3%7D 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46MTEwYzU2MThiNDE2YTljNzY0MmM3MDAzZjFhNTlhYzM2Yg=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:34.707" level="INFO">GET Response : url=http://localhost:8080//api/json?pretty=true&amp;tree=jobs%5Bname%2Ccolor%5D%7B0%2C3%7D 
+ status=200, reason=OK 
+ body={
+  "_class" : "hudson.model.Hudson",
+  "jobs" : [
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "2nd_Job",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Demo_Job",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "First_Job",
+      "color" : "blue"
+    }
+  ]
+} 
+ </msg>
+<msg timestamp="20201201 14:13:34.707" level="INFO">${response1} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:34.644" endtime="20201201 14:13:34.707"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response1.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code1}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.723" level="INFO">${actual_code1} = 200</msg>
+<status status="PASS" starttime="20201201 14:13:34.707" endtime="20201201 14:13:34.723"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code1}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20201201 14:13:34.723" endtime="20201201 14:13:34.723"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response1.json()}</arg>
+</arguments>
+<assign>
+<var>${json_output1}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.723" level="INFO">${json_output1} = {'_class': 'hudson.model.Hudson', 'jobs': [{'_class': 'hudson.model.FreeStyleProject', 'name': '2nd_Job', 'color': 'blue'}, {'_class': 'hudson.model.FreeStyleProject', 'name': 'Demo_Job', 'color': 'bl...</msg>
+<status status="PASS" starttime="20201201 14:13:34.723" endtime="20201201 14:13:34.723"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_output1}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:34.738" level="INFO">${json_output1} = {'_class': 'hudson.model.Hudson', 'jobs': [{'_class': 'hudson.model.FreeStyleProject', 'name': '2nd_Job', 'color': 'blue'}, {'_class': 'hudson.model.FreeStyleProject', 'name': 'Demo_Job', 'color': 'bl...</msg>
+<status status="PASS" starttime="20201201 14:13:34.738" endtime="20201201 14:13:34.738"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>pretty=true</arg>
+<arg>depth=2</arg>
+</arguments>
+<assign>
+<var>${params2}</var>
+</assign>
+<msg timestamp="20201201 14:13:34.738" level="INFO">${params2} = {'pretty': 'true', 'depth': '2'}</msg>
+<status status="PASS" starttime="20201201 14:13:34.738" endtime="20201201 14:13:34.738"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>api/json?</arg>
+<arg>params=${params2}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.644" level="INFO">GET Request : url=http://localhost:8080//api/json?pretty=true&amp;depth=2 
+ path_url=//api/json?pretty=true&amp;depth=2 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46MTEwYzU2MThiNDE2YTljNzY0MmM3MDAzZjFhNTlhYzM2Yg=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:35.660" level="INFO">GET Response : url=http://localhost:8080//api/json?pretty=true&amp;depth=2 
+ status=200, reason=OK 
+ body={
+  "_class" : "hudson.model.Hudson",
+  "assignedLabels" : [
+    {
+      "actions" : [
+        
+      ],
+      "busyExecutors" : 0,
+      "clouds" : [
+        
+      ],
+      "description" : null,
+      "idleExecutors" : 2,
+      "loadStatistics" : {
+        "_class" : "hudson.model.Label$1",
+        "availableExecutors" : {
+          
+        },
+        "busyExecutors" : {
+          
+        },
+        "connectingExecutors" : {
+          
+        },
+        "definedExecutors" : {
+          
+        },
+        "idleExecutors" : {
+          
+        },
+        "onlineExecutors" : {
+          
+        },
+        "queueLength" : {
+          
+        },
+        "totalExecutors" : {
+          
+        }
+      },
+      "name" : "master",
+      "nodes" : [
+        {
+          "_class" : "hudson.model.Hudson",
+          "assignedLabels" : [
+            {
+              "name" : "master"
+            }
+          ],
+          "mode" : "NORMAL",
+          "nodeDescription" : "the master Jenkins node",
+          "nodeName" : "",
+          "numExecutors" : 2,
+          "description" : null,
+          "jobs" : [
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "2nd_Job",
+              "url" : "http://localhost:8080/job/2nd_Job/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "Demo_Job",
+              "url" : "http://localhost:8080/job/Demo_Job/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "First_Job",
+              "url" : "http://localhost:8080/job/First_Job/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "RobotFramework_Demo",
+              "url" : "http://localhost:8080/job/RobotFramework_Demo/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "Second_Job",
+              "url" : "http://localhost:8080/job/Second_Job/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "Test Job",
+              "url" : "http://localhost:8080/job/Test%20Job/",
+              "color" : "blue"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "test_demo",
+              "url" : "http://localhost:8080/job/test_demo/",
+              "color" : "red"
+            },
+            {
+              "_class" : "hudson.model.FreeStyleProject",
+              "name" : "third_job",
+              "url" : "http://localhost:8080/job/third_job/",
+              "color" : "blue"
+            }
+          ],
+          "overallLoad" : {
+            
+          },
+          "primaryView" : {
+            "_class" : "hudson.model.AllView",
+            "name" : "all",
+            "url" : "http://localhost:8080/"
+          },
+          "quietingDown" : false,
+          "slaveAgentPort" : -1,
+          "unlabeledLoad" : {
+            "_class" : "jenkins.model.UnlabeledLoadStatistics"
+          },
+          "url" : "http://localhost:8080/",
+          "useCrumbs" : true,
+          "useSecurity" : true,
+          "views" : [
+            {
+              "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+              "name" : "First_PipeLine",
+              "url" : "http://localhost:8080/view/First_PipeLine/"
+            },
+            {
+              "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+              "name" : "Pipeline_Demo",
+              "url" : "http://localhost:8080/view/Pipeline_Demo/"
+            },
+            {
+              "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+              "name" : "Second_Pipeline",
+              "url" : "http://localhost:8080/view/Second_Pipeline/"
+            },
+            {
+              "_class" : "hudson.model.AllView",
+              "name" : "all",
+              "url" : "http://localhost:8080/"
+            }
+          ]
+        }
+      ],
+      "offline" : false,
+      "tiedJobs" : [
+        
+      ],
+      "totalExecutors" : 2,
+      "propertiesList" : [
+        
+      ]
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "actions" : [
+        {
+          
+        },
+        {
+          
+        },
+        {
+          
+        },
+        {
+          "_class" : "com.cloudbees.plugins.credentials.ViewCredentialsAction",
+          "stores" : {
+            
+          }
+        }
+      ],
+      "description" : "",
+      "displayName" : "2nd_Job",
+      "displayNameOrNull" : null,
+      "fullDisplayName" : "2nd_Job",
+      "fullName" : "2nd_Job",
+      "name" : "2nd_Job",
+      "url" : "http://localhost:8080/job/2nd_Job/",
+      "buildable" : true,
+      "builds" : [
+        {
+          "_class" : "hudson.model.FreeStyleBuild",
+          "actions" : [
+            {
+              "_class" : "hudson.model.CauseAction",
+              "causes" : [
+                {
+                  "_class" : "hudson.model.Cause$UpstreamCause",
+                  "shortDescription" : "Started by upstream project \"First_Job\" build number 30",
+                  "upstreamBuild" : 30,
+                  "upstreamProject" : "First_Job",
+                  "upstreamUrl" : "job/First_Job/"
+                }
+              ]
+            },
+            {
+              
+            },
+            {
+              
+            }
+          ],
+          "artifacts" : [
+            
+          ],
+          "building" : false,
+          "description" : null,
+          "displayName" : "#22",
+          "duration" : 1438,
+          "estimatedDuration" : 1425,
+          "executor" : null,
+          "fullDisplayName" : "2nd_Job #22",
+          "id" : "22",
+          "keepLog" : false,
+          "number" : 22,
+          "queueId" : 50,
+          "result" : "SUCCESS",
+          "timestamp" : 1606805878522,
+          "url" : "http://localhost:8080/job/2nd_Job/22/",
+          "builtOn" : "",
+          "changeSet" : {
+            "_class" : "hudson.scm.EmptyChangeLogSet",
+            "items" : [
+              
+            ],
+            "kind" : null
+          },
+          "culprits" : [
+            
+          ]
+        },
+        {
+          "_class" : "hudson.model.FreeStyleBuild",
+          "actions" : [
+            {
+              "_class" : "hudson.model.CauseAction",
+              "causes" : [
+                {
+                  "_class" : "hudson.model.Cause$UpstreamCause",
+                  "shortDescription" : "Started by upstream project \"First_Job\" build number 29",
+                  "upstreamBuild" : 29,
+                  "upstreamProject" : "First_Job",
+                  "upstreamUrl" : "job/First_Job/"
+                }
+              ]
+            },
+            {
+              
+            },
+            {
+              
+            }
+          ],
+          "artifacts" : [
+            
+          ],
+          "building" : false,
+          "description" : null,
+          "displayName" : "#21",
+          "duration" : 1447,
+          "estimatedDuration" : 1425,
+          "executor" : null,
+          "fullDisplayName" : "2nd_Job #21",
+          "id" : "21",
+          "keepLog" : false,
+          "number" : 21,
+          "queueId" : 47,
+          "result" : "SUCCESS",
+          "timestamp" : 1606805738334,
+          "url" : "http://localhost:8080/job/2nd_Job/21/",
+          "builtOn" : "",
+          "changeSet" : {
+            "_class" : "hudson.scm.EmptyChangeLogSet",
+            "items" : [
+              
+            ],
+            "kind" : null
+          },
+          "culprits" : [
+            
+          ]
+        },
+        {
+          "_class" : "hudson.model.FreeStyleBuild",
+          "actions" : [
+            {
+              "_class" : "hudson.model.CauseAction",
+              "causes" : [
+                {
+                  "_class" : "hudson.model.Cause$UpstreamCause",
+                  "shortDescription" : "Started by upstream project \"First_Job\" build number 28",
+                  "upstreamBuild" : 28,
+                  "upstreamProject" : "First_Job",
+                  "upstreamUrl" : "job/First_Job/"
+                }
+              ]
+            },
+            {
+              
+            },
+            {
+              
+            }
+          ],
+          "artifacts" : [
+            
+          ],
+          "building" : false,
+          "description" : null,
+          "displayName" : "#20",
+          "duration" : 1391,
+          "estimatedDuration" : 1425,
+          "executor" : null,
+          "fullDisplayName" : "2nd_Job #20",
+          "id" : "20",
+          "keepLog" : false,
+          "number" : 20,
+          "queueId" : 44,
+          "result" : "SUCCESS",
+          "timestamp" : 1606804115696,
+          "url" : "http://localhost:8080/job/2nd_Job/20/",
+          "builtOn" : "",
+          "changeSet" : {
+            "_class" : "hudson.scm.EmptyChangeLogSet",
+            "items" : [
+              
+            ],
+            "kind" : null
+          },
+          "culprits" : [
+            
+          ]
+        },
+        {
+          "_class" : "hudson.model.FreeStyleBuild",
+          "actions" : [
+            {
+              "_class" : "hudson.model.CauseAction",
+              "causes" : [
+                {
+                  "_class" : "hudson.model.Cause$UpstreamCause",
+                  "shortDescription" : "Started by upstream project \"First_Job\" build number 27",
+                  "upstreamBuild" : 27,
+                  "upstreamProject" : "First_Job",
+                  "upstreamUrl" : "job/First_Job/"
+                }
+              ]
+            },
+            {
+        ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20201201 14:13:35.660" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:34.754" endtime="20201201 14:13:35.660"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response2.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code2}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.660" level="INFO">${actual_code2} = 200</msg>
+<status status="PASS" starttime="20201201 14:13:35.660" endtime="20201201 14:13:35.660"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code2}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20201201 14:13:35.660" endtime="20201201 14:13:35.660"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response2.json()}</arg>
+</arguments>
+<assign>
+<var>${json_output2}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.676" level="INFO">${json_output2} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'actions': [], 'busyExecutors': 0, 'clouds': [], 'description': None, 'idleExecutors': 2, 'loadStatistics': {'_class': 'hudson.model.Label$1', 'av...</msg>
+<status status="PASS" starttime="20201201 14:13:35.660" endtime="20201201 14:13:35.676"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_output2}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.691" level="INFO">${json_output2} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'actions': [], 'busyExecutors': 0, 'clouds': [], 'description': None, 'idleExecutors': 2, 'loadStatistics': {'_class': 'hudson.model.Label$1', 'av...</msg>
+<status status="PASS" starttime="20201201 14:13:35.676" endtime="20201201 14:13:35.691"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:34.457" endtime="20201201 14:13:35.707"></status>
+</kw>
+<kw name="Triggering the build with API token name">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>token=${api_token_name}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.707" level="INFO">${params} = {'token': 'my_token'}</msg>
+<status status="PASS" starttime="20201201 14:13:35.707" endtime="20201201 14:13:35.707"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>job/${job_name}/build</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.738" level="INFO">POST Request : url=http://localhost:8080//job/First_Job/build?token=my_token 
+ path_url=//job/First_Job/build?token=my_token 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0', 'Authorization': 'Basic YWRtaW46MTEwYzU2MThiNDE2YTljNzY0MmM3MDAzZjFhNTlhYzM2Yg=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:35.738" level="INFO">POST Response : url=http://localhost:8080//job/First_Job/build?token=my_token 
+ status=201, reason=Created 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:35.738" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:35.707" endtime="20201201 14:13:35.738"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.738" level="INFO">${actual_code} = 201</msg>
+<status status="PASS" starttime="20201201 14:13:35.738" endtime="20201201 14:13:35.738"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code1}</arg>
+</arguments>
+<status status="PASS" starttime="20201201 14:13:35.738" endtime="20201201 14:13:35.738"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:35.707" endtime="20201201 14:13:35.754"></status>
+</kw>
+<kw name="Enter Output in Text File">
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_output}</arg>
+</arguments>
+<assign>
+<var>${json_string}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.754" level="INFO">${json_string} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'name': 'master'}], 'mode': 'NORMAL', 'nodeDescription': 'the master Jenkins node', 'nodeName': '', 'numExecutors': 2, 'description': None, 'jobs'...</msg>
+<status status="PASS" starttime="20201201 14:13:35.754" endtime="20201201 14:13:35.754"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_output1}</arg>
+</arguments>
+<assign>
+<var>${json_string1}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.754" level="INFO">${json_string1} = {'_class': 'hudson.model.Hudson', 'jobs': [{'_class': 'hudson.model.FreeStyleProject', 'name': '2nd_Job', 'color': 'blue'}, {'_class': 'hudson.model.FreeStyleProject', 'name': 'Demo_Job', 'color': 'bl...</msg>
+<status status="PASS" starttime="20201201 14:13:35.754" endtime="20201201 14:13:35.754"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_output2}</arg>
+</arguments>
+<assign>
+<var>${json_string2}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.785" level="INFO">${json_string2} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'actions': [], 'busyExecutors': 0, 'clouds': [], 'description': None, 'idleExecutors': 2, 'loadStatistics': {'_class': 'hudson.model.Label$1', 'av...</msg>
+<status status="PASS" starttime="20201201 14:13:35.769" endtime="20201201 14:13:35.785"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.801" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.785" endtime="20201201 14:13:35.801"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>The below is the details of triggered jobs retrived from Jenkins API in JSON format \n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.801" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.801" endtime="20201201 14:13:35.801"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>${json_string}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.816" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.816" endtime="20201201 14:13:35.816"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.816" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.816" endtime="20201201 14:13:35.816"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>--------------------------------------------------------------------------------------------------------------------------------------------\n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.832" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.832" endtime="20201201 14:13:35.832"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>The below is the details of first three jobs retrived from Jenkins API in JSON format \n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.832" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.832" endtime="20201201 14:13:35.832"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>${json_string1}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.848" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.848" endtime="20201201 14:13:35.848"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.848" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.848" endtime="20201201 14:13:35.848"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>--------------------------------------------------------------------------------------------------------------------------------------------\n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.863" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.848" endtime="20201201 14:13:35.863"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>The below is the details of triggered jobs retrived from Jenkins API in JSON format to certain depth \n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.863" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.863" endtime="20201201 14:13:35.863"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>${json_string2}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.863" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.863" endtime="20201201 14:13:35.863"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.879" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt"&gt;C:\Users\HOME\PycharmProjects\Training\Jenkins_API\Results\results.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20201201 14:13:35.879" endtime="20201201 14:13:35.879"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/Jenkins_API/Results/results.txt"&gt;Results Data File&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.879" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/Jenkins_API/Results/results.txt"&gt;Results Data File&lt;a&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:35.879" endtime="20201201 14:13:35.879"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:35.754" endtime="20201201 14:13:35.879"></status>
+</kw>
+<kw name="Validating the output of API data">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>pretty=true tree=jobs[name,color]</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.879" level="INFO">${params} = {'pretty': 'true tree=jobs[name,color]'}</msg>
+<status status="PASS" starttime="20201201 14:13:35.879" endtime="20201201 14:13:35.879"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>api/json?</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.957" level="INFO">GET Request : url=http://localhost:8080//api/json?pretty=true+tree%3Djobs%5Bname%2Ccolor%5D 
+ path_url=//api/json?pretty=true+tree%3Djobs%5Bname%2Ccolor%5D 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46MTEwYzU2MThiNDE2YTljNzY0MmM3MDAzZjFhNTlhYzM2Yg=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201201 14:13:35.957" level="INFO">GET Response : url=http://localhost:8080//api/json?pretty=true+tree%3Djobs%5Bname%2Ccolor%5D 
+ status=200, reason=OK 
+ body={
+  "_class" : "hudson.model.Hudson",
+  "assignedLabels" : [
+    {
+      "name" : "master"
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "2nd_Job",
+      "url" : "http://localhost:8080/job/2nd_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Demo_Job",
+      "url" : "http://localhost:8080/job/Demo_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "First_Job",
+      "url" : "http://localhost:8080/job/First_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "RobotFramework_Demo",
+      "url" : "http://localhost:8080/job/RobotFramework_Demo/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Second_Job",
+      "url" : "http://localhost:8080/job/Second_Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "Test Job",
+      "url" : "http://localhost:8080/job/Test%20Job/",
+      "color" : "blue"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "test_demo",
+      "url" : "http://localhost:8080/job/test_demo/",
+      "color" : "red"
+    },
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "third_job",
+      "url" : "http://localhost:8080/job/third_job/",
+      "color" : "blue"
+    }
+  ],
+  "overallLoad" : {
+    
+  },
+  "primaryView" : {
+    "_class" : "hudson.model.AllView",
+    "name" : "all",
+    "url" : "http://localhost:8080/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : -1,
+  "unlabeledLoad" : {
+    "_class" : "jenkins.model.UnlabeledLoadStatistics"
+  },
+  "url" : "http://localhost:8080/",
+  "useCrumbs" : true,
+  "useSecurity" : true,
+  "views" : [
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "First_PipeLine",
+      "url" : "http://localhost:8080/view/First_PipeLine/"
+    },
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "Pipeline_Demo",
+      "url" : "http://localhost:8080/view/Pipeline_Demo/"
+    },
+    {
+      "_class" : "se.diabol.jenkins.pipeline.DeliveryPipelineView",
+      "name" : "Second_Pipeline",
+      "url" : "http://localhost:8080/view/Second_Pipeline/"
+    },
+    {
+      "_class" : "hudson.model.AllView",
+      "name" : "all",
+      "url" : "http://localhost:8080/"
+    }
+  ]
+} 
+ </msg>
+<msg timestamp="20201201 14:13:35.957" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:35.894" endtime="20201201 14:13:35.957"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.957" level="INFO">${json} = {'_class': 'hudson.model.Hudson', 'assignedLabels': [{'name': 'master'}], 'mode': 'NORMAL', 'nodeDescription': 'the master Jenkins node', 'nodeName': '', 'numExecutors': 2, 'description': None, 'jobs'...</msg>
+<status status="PASS" starttime="20201201 14:13:35.957" endtime="20201201 14:13:35.957"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json["jobs"]}</arg>
+</arguments>
+<assign>
+<var>${jobs_list}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.973" level="INFO">${jobs_list} = [{'_class': 'hudson.model.FreeStyleProject', 'name': '2nd_Job', 'url': 'http://localhost:8080/job/2nd_Job/', 'color': 'blue'}, {'_class': 'hudson.model.FreeStyleProject', 'name': 'Demo_Job', 'url': 'h...</msg>
+<status status="PASS" starttime="20201201 14:13:35.973" endtime="20201201 14:13:35.973"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${jobs_list}</arg>
+</arguments>
+<status status="PASS" starttime="20201201 14:13:35.973" endtime="20201201 14:13:35.973"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${jobs_list}</arg>
+</arguments>
+<assign>
+<var>${cnt}</var>
+</assign>
+<msg timestamp="20201201 14:13:35.973" level="INFO">Length is 8</msg>
+<msg timestamp="20201201 14:13:35.973" level="INFO">${cnt} = 8</msg>
+<status status="PASS" starttime="20201201 14:13:35.973" endtime="20201201 14:13:35.973"></status>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<arguments>
+<arg>${cnt}</arg>
+<arg>${expected_count}</arg>
+</arguments>
+<msg timestamp="20201201 14:13:35.988" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20201201 14:13:35.988" endtime="20201201 14:13:35.988"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:35.879" endtime="20201201 14:13:35.988"></status>
+</kw>
+<kw name="Delete Sessions">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20201201 14:13:35.988" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20201201 14:13:35.988" endtime="20201201 14:13:35.988"></status>
+</kw>
+<status status="PASS" starttime="20201201 14:13:35.988" endtime="20201201 14:13:36.004"></status>
+</kw>
+<doc>Test case validates different use cases on Jenkins API Page</doc>
+<status status="PASS" starttime="20201201 14:13:34.426" endtime="20201201 14:13:36.004" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201201 14:13:33.629" endtime="20201201 14:13:36.019"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Jenkins Demo">Jenkins Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
