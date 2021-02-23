@@ -1,0 +1,3706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 3.2.1 (Python 3.8.3 on win32)" generated="20210223 00:28:45.218" rpa="false">
+<suite id="s1" name="TestSuites" source="C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\TestSuites">
+<suite id="s1-s1" name="TC1 getcurrentdata" source="C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\TestSuites\TC1_getcurrentdata.robot">
+<kw name="Create session and file" library="Resources" type="setup">
+<kw name="Create a session" library="Resources">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${BASE_URL}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.881" level="INFO">Creating Session using : alias=mysession, url=http://api.openweathermap.org/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210223 00:28:16.881" endtime="20210223 00:28:16.881"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.881" endtime="20210223 00:28:16.881"></status>
+</kw>
+<kw name="Create a Text file" library="Resources">
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.897" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:16.881" endtime="20210223 00:28:16.897"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.881" endtime="20210223 00:28:16.897"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.881" endtime="20210223 00:28:16.897"></status>
+</kw>
+<kw name="Delete Sessions" library="Resources" type="teardown">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20210223 00:28:44.640" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20210223 00:28:44.640" endtime="20210223 00:28:44.640"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:44.640" endtime="20210223 00:28:44.655"></status>
+</kw>
+<test id="s1-s1-t1" name="Getting current weather conditions for place Tirupati">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Started execution of test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.897" level="INFO">Started execution of test case</msg>
+<status status="PASS" starttime="20210223 00:28:16.897" endtime="20210223 00:28:16.897"></status>
+</kw>
+<kw name="Weather Test1">
+<tags>
+<tag>Place</tag>
+</tags>
+<doc>This testcase will return the weather condition detailed report for a given city</doc>
+<arguments>
+<arg>Tirupati</arg>
+</arguments>
+<kw name="Allure Reports Directory" library="Resources">
+<doc>This custom keyword will help in finding AllureReports directory and empties it if exists</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</arg>
+</arguments>
+<assign>
+<var>${path}</var>
+</assign>
+<msg timestamp="20210223 00:28:16.897" level="INFO">${path} = C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</msg>
+<status status="PASS" starttime="20210223 00:28:16.897" endtime="20210223 00:28:16.897"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Directory Should Exist</arg>
+<arg>path=${path}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Directory Should Exist" library="OperatingSystem">
+<doc>Fails unless the given path points to an existing directory.</doc>
+<arguments>
+<arg>path=${path}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.913" level="FAIL">Directory 'C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\AllureReports' does not exist.</msg>
+<status status="FAIL" starttime="20210223 00:28:16.913" endtime="20210223 00:28:16.913"></status>
+</kw>
+<msg timestamp="20210223 00:28:16.913" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20210223 00:28:16.913" endtime="20210223 00:28:16.913"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'True'</arg>
+<arg>Empty Directory</arg>
+<arg>path=${path}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:16.913" endtime="20210223 00:28:16.913"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.897" endtime="20210223 00:28:16.913"></status>
+</kw>
+<kw name="Getting current weather conditions by giving place name" library="Resources">
+<doc>This custom keyword will return the current weather conditions of a place given</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>q=${place}</arg>
+<arg>units=metric</arg>
+<arg>appid=${API_KEY}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20210223 00:28:16.913" level="INFO">${params} = {'q': 'Tirupati', 'units': 'metric', 'appid': 'c5ac5d3cf978348e15794044cbb52f0d'}</msg>
+<status status="PASS" starttime="20210223 00:28:16.913" endtime="20210223 00:28:16.913"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${REQUEST_URI}</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.178" level="INFO">GET Request : url=http://api.openweathermap.org//data/2.5/weather?q=Tirupati&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ path_url=//data/2.5/weather?q=Tirupati&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210223 00:28:17.178" level="INFO">GET Response : url=http://api.openweathermap.org//data/2.5/weather?q=Tirupati&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ status=200, reason=OK 
+ body={"coord":{"lon":79.4167,"lat":13.65},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":21.29,"feels_like":24.38,"temp_min":21.29,"temp_max":21.29,"pressure":1014,"humidity":88,"sea_level":1014,"grnd_level":994},"visibility":10000,"wind":{"speed":0.35,"deg":223},"clouds":{"all":99},"dt":1614020274,"sys":{"country":"IN","sunrise":1614042124,"sunset":1614084582},"timezone":19800,"id":1254360,"name":"Tirumala - Tirupati","cod":200} 
+ </msg>
+<msg timestamp="20210223 00:28:17.178" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:16.928" endtime="20210223 00:28:17.178"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.194" level="INFO">${actual_code} = 200</msg>
+<status status="PASS" starttime="20210223 00:28:17.178" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Success Message: The Open Weather Map API is working fine for the place-${place} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.194" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.210" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.210"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.210" level="INFO">${body} = {"coord":{"lon":79.4167,"lat":13.65},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":21.29,"feels_like":24.38,"temp_min":21.29,"tem...</msg>
+<status status="PASS" starttime="20210223 00:28:17.210" endtime="20210223 00:28:17.210"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json_dict}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.210" level="INFO">${json_dict} = {'coord': {'lon': 79.4167, 'lat': 13.65}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.29, 'feels_like': 24.38, ...</msg>
+<status status="PASS" starttime="20210223 00:28:17.210" endtime="20210223 00:28:17.210"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.225" level="INFO">${json_dict} = {'coord': {'lon': 79.4167, 'lat': 13.65}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.29, 'feels_like': 24.38, ...</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.225"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.913" endtime="20210223 00:28:17.225"></status>
+</kw>
+<kw name="Entering weather details for a particular place in the report" library="Resources">
+<doc>This custom keyword will enter the values in the report text file</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<assign>
+<var>${json_string}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.225" level="INFO">${json_string} = {'coord': {'lon': 79.4167, 'lat': 13.65}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.29, 'feels_like': 24.38, ...</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.225"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The below is the current weather conditions of the place-${place} in string format: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.241" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>${json_string}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.241" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.241" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.241" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.241" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The Weather Details in pretty detailed format are given below: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.256" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.256"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.256" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.256"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.272" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.272" endtime="20210223 00:28:17.272"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.272"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["name"]}</arg>
+</arguments>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.272" level="INFO">${city} = Tirumala - Tirupati</msg>
+<status status="PASS" starttime="20210223 00:28:17.272" endtime="20210223 00:28:17.272"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Name: ${city} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.288" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.272" endtime="20210223 00:28:17.288"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.288" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.288" endtime="20210223 00:28:17.288"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.288" endtime="20210223 00:28:17.288"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["id"]}</arg>
+</arguments>
+<assign>
+<var>${cityid}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.303" level="INFO">${cityid} = 1254360</msg>
+<status status="PASS" starttime="20210223 00:28:17.303" endtime="20210223 00:28:17.303"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Id: ${cityid} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.303" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.303" endtime="20210223 00:28:17.303"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["country"]}</arg>
+</arguments>
+<assign>
+<var>${countrycode}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.303" level="INFO">${countrycode} = IN</msg>
+<status status="PASS" starttime="20210223 00:28:17.303" endtime="20210223 00:28:17.303"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Country Code: ${countrycode} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.319" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.319" endtime="20210223 00:28:17.319"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Geographic Coordinates: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.319" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.319" endtime="20210223 00:28:17.319"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.335" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.335" endtime="20210223 00:28:17.335"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.335" endtime="20210223 00:28:17.335"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lat"]}</arg>
+</arguments>
+<assign>
+<var>${latitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.335" level="INFO">${latitude} = 13.65</msg>
+<status status="PASS" starttime="20210223 00:28:17.335" endtime="20210223 00:28:17.335"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Latitude: ${latitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.350" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.350" endtime="20210223 00:28:17.350"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.350" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.350" endtime="20210223 00:28:17.350"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.350" endtime="20210223 00:28:17.366"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lon"]}</arg>
+</arguments>
+<assign>
+<var>${longitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.366" level="INFO">${longitude} = 79.4167</msg>
+<status status="PASS" starttime="20210223 00:28:17.366" endtime="20210223 00:28:17.366"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Longitude: ${longitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.366" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.366" endtime="20210223 00:28:17.366"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.366" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.366" endtime="20210223 00:28:17.381"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.381" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.381" endtime="20210223 00:28:17.381"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.381" endtime="20210223 00:28:17.381"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["dt"]}</arg>
+</arguments>
+<assign>
+<var>${unix_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.381" level="INFO">${unix_timestamp} = 1614020274</msg>
+<status status="PASS" starttime="20210223 00:28:17.381" endtime="20210223 00:28:17.381"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${unix_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt1}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.397" level="INFO">${dt1} = 2021-02-23  12:27:54 AM</msg>
+<status status="PASS" starttime="20210223 00:28:17.397" endtime="20210223 00:28:17.397"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time: ${dt1}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.397" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.397" endtime="20210223 00:28:17.397"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.413" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.397" endtime="20210223 00:28:17.413"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.397" endtime="20210223 00:28:17.413"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunrise"]}</arg>
+</arguments>
+<assign>
+<var>${sunrise_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.413" level="INFO">${sunrise_timestamp} = 1614042124</msg>
+<status status="PASS" starttime="20210223 00:28:17.413" endtime="20210223 00:28:17.413"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunrise_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt2}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.413" level="INFO">${dt2} = 2021-02-23  06:32:04 AM</msg>
+<status status="PASS" starttime="20210223 00:28:17.413" endtime="20210223 00:28:17.413"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunrise Time: ${dt2}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.428" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.428" endtime="20210223 00:28:17.428"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.428" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.428" endtime="20210223 00:28:17.428"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.428" endtime="20210223 00:28:17.444"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunset"]}</arg>
+</arguments>
+<assign>
+<var>${sunset_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.444" level="INFO">${sunset_timestamp} = 1614084582</msg>
+<status status="PASS" starttime="20210223 00:28:17.444" endtime="20210223 00:28:17.444"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunset_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt3}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.444" level="INFO">${dt3} = 2021-02-23  06:19:42 PM</msg>
+<status status="PASS" starttime="20210223 00:28:17.444" endtime="20210223 00:28:17.444"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunset Time: ${dt3}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.444" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.444" endtime="20210223 00:28:17.444"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature Values: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.460" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.444" endtime="20210223 00:28:17.460"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.460" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.460" endtime="20210223 00:28:17.460"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.460" endtime="20210223 00:28:17.460"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp"]}</arg>
+</arguments>
+<assign>
+<var>${tempinCelsius}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.460" level="INFO">${tempinCelsius} = 21.29</msg>
+<status status="PASS" starttime="20210223 00:28:17.460" endtime="20210223 00:28:17.460"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Celsius: ${tempinCelsius} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.475" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.460" endtime="20210223 00:28:17.475"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Fahrenheit</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinFahrenheit}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.475" level="INFO">${tempinFahrenheit} = 70.32</msg>
+<status status="PASS" starttime="20210223 00:28:17.475" endtime="20210223 00:28:17.475"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.475" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.475" endtime="20210223 00:28:17.475"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.475" endtime="20210223 00:28:17.475"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Fahrenheit: ${tempinFahrenheit} `F \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.491" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.475" endtime="20210223 00:28:17.491"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Kelvin</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinKelvin}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.491" level="INFO">${tempinKelvin} = 294.44</msg>
+<status status="PASS" starttime="20210223 00:28:17.491" endtime="20210223 00:28:17.491"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.491" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.491" endtime="20210223 00:28:17.491"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.491" endtime="20210223 00:28:17.491"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Kelvin: ${tempinKelvin} kelvin \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.506" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.491" endtime="20210223 00:28:17.506"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.506" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.506" endtime="20210223 00:28:17.506"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.506" endtime="20210223 00:28:17.506"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_min"]}</arg>
+</arguments>
+<assign>
+<var>${min_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.506" level="INFO">${min_temp} = 21.29</msg>
+<status status="PASS" starttime="20210223 00:28:17.506" endtime="20210223 00:28:17.506"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Minimum Temperature in Celsius: ${min_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.506" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.506" endtime="20210223 00:28:17.506"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.522" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.522" endtime="20210223 00:28:17.522"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.522" endtime="20210223 00:28:17.522"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_max"]}</arg>
+</arguments>
+<assign>
+<var>${max_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.522" level="INFO">${max_temp} = 21.29</msg>
+<status status="PASS" starttime="20210223 00:28:17.522" endtime="20210223 00:28:17.522"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Maximum Temperature in Celsius: ${max_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.538" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.522" endtime="20210223 00:28:17.538"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["pressure"]}</arg>
+</arguments>
+<assign>
+<var>${pressure}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.538" level="INFO">${pressure} = 1014</msg>
+<status status="PASS" starttime="20210223 00:28:17.538" endtime="20210223 00:28:17.538"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Atmospheric Pressure: ${pressure} hpa \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.538" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.538" endtime="20210223 00:28:17.538"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["humidity"]}</arg>
+</arguments>
+<assign>
+<var>${humidity}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.538" level="INFO">${humidity} = 88</msg>
+<status status="PASS" starttime="20210223 00:28:17.538" endtime="20210223 00:28:17.538"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Humidity: ${humidity} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.553" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.553" endtime="20210223 00:28:17.553"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["clouds"]["all"]}</arg>
+</arguments>
+<assign>
+<var>${cloudiness}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.553" level="INFO">${cloudiness} = 99</msg>
+<status status="PASS" starttime="20210223 00:28:17.553" endtime="20210223 00:28:17.553"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Cloudiness: ${cloudiness} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.553" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.553" endtime="20210223 00:28:17.553"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Conditions: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.569" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.553" endtime="20210223 00:28:17.569"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.569" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.569" endtime="20210223 00:28:17.569"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.569" endtime="20210223 00:28:17.569"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["speed"]}</arg>
+</arguments>
+<assign>
+<var>${speed}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.569" level="INFO">${speed} = 0.35</msg>
+<status status="PASS" starttime="20210223 00:28:17.569" endtime="20210223 00:28:17.569"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Speed: ${longitude} meter/sec \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.585" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.569" endtime="20210223 00:28:17.585"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.585" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.585" endtime="20210223 00:28:17.585"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.585" endtime="20210223 00:28:17.585"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["deg"]}</arg>
+</arguments>
+<assign>
+<var>${direction}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.585" level="INFO">${direction} = 223</msg>
+<status status="PASS" starttime="20210223 00:28:17.585" endtime="20210223 00:28:17.585"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Direction: ${direction} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.600" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.585" endtime="20210223 00:28:17.600"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Codes: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.600" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.600" endtime="20210223 00:28:17.600"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.600" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.600" endtime="20210223 00:28:17.600"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.600" endtime="20210223 00:28:17.600"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["weather"]}</arg>
+</arguments>
+<assign>
+<var>${weather_list}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.616" level="INFO">${weather_list} = [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}]</msg>
+<status status="PASS" starttime="20210223 00:28:17.600" endtime="20210223 00:28:17.616"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${weather_list}[0]</arg>
+</arguments>
+<assign>
+<var>${first_element}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.616" level="INFO">${first_element} = {'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}</msg>
+<status status="PASS" starttime="20210223 00:28:17.616" endtime="20210223 00:28:17.616"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["id"]}</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.631" level="INFO">${id} = 804</msg>
+<status status="PASS" starttime="20210223 00:28:17.631" endtime="20210223 00:28:17.631"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Id: ${id} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.647" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.647" endtime="20210223 00:28:17.647"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.647" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.647" endtime="20210223 00:28:17.647"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.647" endtime="20210223 00:28:17.647"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["main"]}</arg>
+</arguments>
+<assign>
+<var>${condition}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.663" level="INFO">${condition} = Clouds</msg>
+<status status="PASS" starttime="20210223 00:28:17.647" endtime="20210223 00:28:17.663"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition: ${condition} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.663" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.663" endtime="20210223 00:28:17.663"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.663" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.663" endtime="20210223 00:28:17.663"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.663" endtime="20210223 00:28:17.663"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["description"]}</arg>
+</arguments>
+<assign>
+<var>${description}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.678" level="INFO">${description} = overcast clouds</msg>
+<status status="PASS" starttime="20210223 00:28:17.663" endtime="20210223 00:28:17.678"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Description: ${description} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.678" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.678" endtime="20210223 00:28:17.678"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.678" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.678" endtime="20210223 00:28:17.678"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.678" endtime="20210223 00:28:17.694"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["icon"]}</arg>
+</arguments>
+<assign>
+<var>${icon}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.694" level="INFO">${icon} = 04n</msg>
+<status status="PASS" starttime="20210223 00:28:17.694" endtime="20210223 00:28:17.694"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Icon: ${icon} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.694" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.694" endtime="20210223 00:28:17.694"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.694" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.694" endtime="20210223 00:28:17.694"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${icon}@2x.png</arg>
+</arguments>
+<assign>
+<var>${icon1}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.710" level="INFO">${icon1} = 04n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:17.694" endtime="20210223 00:28:17.710"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>http://openweathermap.org/img/wn/${icon1}</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.710" level="INFO">${url} = http://openweathermap.org/img/wn/04n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:17.710" endtime="20210223 00:28:17.710"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.710" level="INFO">Opening browser 'chrome' to base url 'http://openweathermap.org/img/wn/04n@2x.png'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.710" endtime="20210223 00:28:21.435"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${SCREENSHOT_NAME}-${place}.png</arg>
+</arguments>
+<assign>
+<var>${screenshot_filename}</var>
+</assign>
+<msg timestamp="20210223 00:28:21.442" level="INFO">${screenshot_filename} = icon-Tirupati.png</msg>
+<status status="PASS" starttime="20210223 00:28:21.439" endtime="20210223 00:28:21.442"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${dir}/${screenshot_filename}</arg>
+</arguments>
+<assign>
+<var>${fullPATH}</var>
+</assign>
+<msg timestamp="20210223 00:28:21.446" level="INFO">${fullPATH} = C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results/icon-Tirupati.png</msg>
+<status status="PASS" starttime="20210223 00:28:21.445" endtime="20210223 00:28:21.446"></status>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<arguments>
+<arg>tag:img</arg>
+<arg>filename=${fullPATH}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:21.821" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../icon-Tirupati.png"&gt;&lt;img src="../../icon-Tirupati.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:21.450" endtime="20210223 00:28:21.821"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${screenshot_filename}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:21.827" level="INFO">${screenshot_filename} = icon-Tirupati.png</msg>
+<status status="PASS" starttime="20210223 00:28:21.826" endtime="20210223 00:28:21.827"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210223 00:28:23.842" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210223 00:28:21.831" endtime="20210223 00:28:23.842"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210223 00:28:23.842" endtime="20210223 00:28:26.055"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.071" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:26.071" endtime="20210223 00:28:26.071"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:26.071"></status>
+</kw>
+<kw name="Embed the Screenshot File" library="Resources">
+<doc>This custom keyword will help in embed the external screenshot file in the report</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/${screenshot_filename}"&gt;Weather Icon Screeshot&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.071" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/icon-Tirupati.png"&gt;Weather Icon Screeshot&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:26.071" endtime="20210223 00:28:26.071"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.071" endtime="20210223 00:28:26.071"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.897" endtime="20210223 00:28:26.071"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Completion of executing the test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.071" level="INFO">Completion of executing the test case</msg>
+<status status="PASS" starttime="20210223 00:28:26.071" endtime="20210223 00:28:26.071"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.897" endtime="20210223 00:28:26.087" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="Getting current weather conditions for place London">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Started execution of test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.087" level="INFO">Started execution of test case</msg>
+<status status="PASS" starttime="20210223 00:28:26.087" endtime="20210223 00:28:26.087"></status>
+</kw>
+<kw name="Weather Test1">
+<tags>
+<tag>Place</tag>
+</tags>
+<doc>This testcase will return the weather condition detailed report for a given city</doc>
+<arguments>
+<arg>London</arg>
+</arguments>
+<kw name="Allure Reports Directory" library="Resources">
+<doc>This custom keyword will help in finding AllureReports directory and empties it if exists</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</arg>
+</arguments>
+<assign>
+<var>${path}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.087" level="INFO">${path} = C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</msg>
+<status status="PASS" starttime="20210223 00:28:26.087" endtime="20210223 00:28:26.087"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Directory Should Exist</arg>
+<arg>path=${path}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Directory Should Exist" library="OperatingSystem">
+<doc>Fails unless the given path points to an existing directory.</doc>
+<arguments>
+<arg>path=${path}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.102" level="FAIL">Directory 'C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\AllureReports' does not exist.</msg>
+<status status="FAIL" starttime="20210223 00:28:26.102" endtime="20210223 00:28:26.102"></status>
+</kw>
+<msg timestamp="20210223 00:28:26.102" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20210223 00:28:26.102" endtime="20210223 00:28:26.102"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'True'</arg>
+<arg>Empty Directory</arg>
+<arg>path=${path}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:26.102" endtime="20210223 00:28:26.102"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.087" endtime="20210223 00:28:26.102"></status>
+</kw>
+<kw name="Getting current weather conditions by giving place name" library="Resources">
+<doc>This custom keyword will return the current weather conditions of a place given</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>q=${place}</arg>
+<arg>units=metric</arg>
+<arg>appid=${API_KEY}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.118" level="INFO">${params} = {'q': 'London', 'units': 'metric', 'appid': 'c5ac5d3cf978348e15794044cbb52f0d'}</msg>
+<status status="PASS" starttime="20210223 00:28:26.118" endtime="20210223 00:28:26.118"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${REQUEST_URI}</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.259" level="INFO">GET Request : url=http://api.openweathermap.org//data/2.5/weather?q=London&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ path_url=//data/2.5/weather?q=London&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210223 00:28:26.259" level="INFO">GET Response : url=http://api.openweathermap.org//data/2.5/weather?q=London&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ status=200, reason=OK 
+ body={"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":10.26,"feels_like":7.68,"temp_min":9.44,"temp_max":11.11,"pressure":1019,"humidity":87},"visibility":7000,"wind":{"speed":3.09,"deg":220},"clouds":{"all":90},"dt":1614019501,"sys":{"type":1,"id":1414,"country":"GB","sunrise":1613977229,"sunset":1614014870},"timezone":0,"id":2643743,"name":"London","cod":200} 
+ </msg>
+<msg timestamp="20210223 00:28:26.259" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:26.118" endtime="20210223 00:28:26.259"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.259" level="INFO">${actual_code} = 200</msg>
+<status status="PASS" starttime="20210223 00:28:26.259" endtime="20210223 00:28:26.259"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:26.259" endtime="20210223 00:28:26.274"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Success Message: The Open Weather Map API is working fine for the place-${place} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.274" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.274" endtime="20210223 00:28:26.274"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.274" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.274" endtime="20210223 00:28:26.274"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.274" level="INFO">${body} = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":10.26,"feels_like":7.68,"temp_min":9.44,"tem...</msg>
+<status status="PASS" starttime="20210223 00:28:26.274" endtime="20210223 00:28:26.274"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json_dict}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.290" level="INFO">${json_dict} = {'coord': {'lon': -0.1257, 'lat': 51.5085}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 10.26, 'feels_like': 7.68,...</msg>
+<status status="PASS" starttime="20210223 00:28:26.290" endtime="20210223 00:28:26.290"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.290" level="INFO">${json_dict} = {'coord': {'lon': -0.1257, 'lat': 51.5085}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 10.26, 'feels_like': 7.68,...</msg>
+<status status="PASS" starttime="20210223 00:28:26.290" endtime="20210223 00:28:26.290"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.102" endtime="20210223 00:28:26.290"></status>
+</kw>
+<kw name="Entering weather details for a particular place in the report" library="Resources">
+<doc>This custom keyword will enter the values in the report text file</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<assign>
+<var>${json_string}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.290" level="INFO">${json_string} = {'coord': {'lon': -0.1257, 'lat': 51.5085}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 10.26, 'feels_like': 7.68,...</msg>
+<status status="PASS" starttime="20210223 00:28:26.290" endtime="20210223 00:28:26.290"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The below is the current weather conditions of the place-${place} in string format: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.352" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.337" endtime="20210223 00:28:26.352"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>${json_string}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.352" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.352" endtime="20210223 00:28:26.352"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.352" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.352" endtime="20210223 00:28:26.352"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The Weather Details in pretty detailed format are given below: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.368" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.368" endtime="20210223 00:28:26.368"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.368" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.368" endtime="20210223 00:28:26.368"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.368" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.368" endtime="20210223 00:28:26.368"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.368" endtime="20210223 00:28:26.384"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["name"]}</arg>
+</arguments>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.384" level="INFO">${city} = London</msg>
+<status status="PASS" starttime="20210223 00:28:26.384" endtime="20210223 00:28:26.384"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Name: ${city} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.384" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.384" endtime="20210223 00:28:26.384"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.384" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.384" endtime="20210223 00:28:26.384"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.384" endtime="20210223 00:28:26.399"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["id"]}</arg>
+</arguments>
+<assign>
+<var>${cityid}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.399" level="INFO">${cityid} = 2643743</msg>
+<status status="PASS" starttime="20210223 00:28:26.399" endtime="20210223 00:28:26.399"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Id: ${cityid} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.399" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.399" endtime="20210223 00:28:26.399"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["country"]}</arg>
+</arguments>
+<assign>
+<var>${countrycode}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.399" level="INFO">${countrycode} = GB</msg>
+<status status="PASS" starttime="20210223 00:28:26.399" endtime="20210223 00:28:26.399"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Country Code: ${countrycode} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.415" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.399" endtime="20210223 00:28:26.415"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Geographic Coordinates: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.415" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.415" endtime="20210223 00:28:26.415"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.415" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.415" endtime="20210223 00:28:26.415"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.415" endtime="20210223 00:28:26.430"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lat"]}</arg>
+</arguments>
+<assign>
+<var>${latitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.430" level="INFO">${latitude} = 51.5085</msg>
+<status status="PASS" starttime="20210223 00:28:26.430" endtime="20210223 00:28:26.430"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Latitude: ${latitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.430" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.430" endtime="20210223 00:28:26.430"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.430" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.430" endtime="20210223 00:28:26.430"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.430" endtime="20210223 00:28:26.446"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lon"]}</arg>
+</arguments>
+<assign>
+<var>${longitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.446" level="INFO">${longitude} = -0.1257</msg>
+<status status="PASS" starttime="20210223 00:28:26.446" endtime="20210223 00:28:26.446"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Longitude: ${longitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.446" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.446" endtime="20210223 00:28:26.446"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.446" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.446" endtime="20210223 00:28:26.446"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.462" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.462" endtime="20210223 00:28:26.462"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.462" endtime="20210223 00:28:26.462"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["dt"]}</arg>
+</arguments>
+<assign>
+<var>${unix_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.462" level="INFO">${unix_timestamp} = 1614019501</msg>
+<status status="PASS" starttime="20210223 00:28:26.462" endtime="20210223 00:28:26.462"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${unix_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt1}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.462" level="INFO">${dt1} = 2021-02-23  12:15:01 AM</msg>
+<status status="PASS" starttime="20210223 00:28:26.462" endtime="20210223 00:28:26.462"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time: ${dt1}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.477" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.462" endtime="20210223 00:28:26.477"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.477" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.477" endtime="20210223 00:28:26.477"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.477" endtime="20210223 00:28:26.477"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunrise"]}</arg>
+</arguments>
+<assign>
+<var>${sunrise_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.477" level="INFO">${sunrise_timestamp} = 1613977229</msg>
+<status status="PASS" starttime="20210223 00:28:26.477" endtime="20210223 00:28:26.477"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunrise_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt2}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.493" level="INFO">${dt2} = 2021-02-22  12:30:29 PM</msg>
+<status status="PASS" starttime="20210223 00:28:26.477" endtime="20210223 00:28:26.493"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunrise Time: ${dt2}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.493" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.493" endtime="20210223 00:28:26.493"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.493" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.493" endtime="20210223 00:28:26.493"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.493" endtime="20210223 00:28:26.493"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunset"]}</arg>
+</arguments>
+<assign>
+<var>${sunset_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.509" level="INFO">${sunset_timestamp} = 1614014870</msg>
+<status status="PASS" starttime="20210223 00:28:26.493" endtime="20210223 00:28:26.509"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunset_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt3}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.509" level="INFO">${dt3} = 2021-02-22  10:57:50 PM</msg>
+<status status="PASS" starttime="20210223 00:28:26.509" endtime="20210223 00:28:26.509"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunset Time: ${dt3}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.509" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.509" endtime="20210223 00:28:26.509"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature Values: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.524" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.509" endtime="20210223 00:28:26.524"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.524" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.524" endtime="20210223 00:28:26.524"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.524" endtime="20210223 00:28:26.524"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp"]}</arg>
+</arguments>
+<assign>
+<var>${tempinCelsius}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.524" level="INFO">${tempinCelsius} = 10.26</msg>
+<status status="PASS" starttime="20210223 00:28:26.524" endtime="20210223 00:28:26.524"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Celsius: ${tempinCelsius} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.540" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.524" endtime="20210223 00:28:26.540"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Fahrenheit</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinFahrenheit}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.540" level="INFO">${tempinFahrenheit} = 50.47</msg>
+<status status="PASS" starttime="20210223 00:28:26.540" endtime="20210223 00:28:26.540"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.540" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.540" endtime="20210223 00:28:26.540"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.540" endtime="20210223 00:28:26.540"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Fahrenheit: ${tempinFahrenheit} `F \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.556" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.540" endtime="20210223 00:28:26.556"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Kelvin</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinKelvin}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.556" level="INFO">${tempinKelvin} = 283.41</msg>
+<status status="PASS" starttime="20210223 00:28:26.556" endtime="20210223 00:28:26.556"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.556" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.556" endtime="20210223 00:28:26.556"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.556" endtime="20210223 00:28:26.556"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Kelvin: ${tempinKelvin} kelvin \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.571" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.556" endtime="20210223 00:28:26.571"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.571" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.571" endtime="20210223 00:28:26.571"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.571" endtime="20210223 00:28:26.571"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_min"]}</arg>
+</arguments>
+<assign>
+<var>${min_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.571" level="INFO">${min_temp} = 9.44</msg>
+<status status="PASS" starttime="20210223 00:28:26.571" endtime="20210223 00:28:26.571"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Minimum Temperature in Celsius: ${min_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.587" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.571" endtime="20210223 00:28:26.587"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.587" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.587" endtime="20210223 00:28:26.587"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.587" endtime="20210223 00:28:26.587"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_max"]}</arg>
+</arguments>
+<assign>
+<var>${max_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.587" level="INFO">${max_temp} = 11.11</msg>
+<status status="PASS" starttime="20210223 00:28:26.587" endtime="20210223 00:28:26.587"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Maximum Temperature in Celsius: ${max_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.602" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.587" endtime="20210223 00:28:26.602"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["pressure"]}</arg>
+</arguments>
+<assign>
+<var>${pressure}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.602" level="INFO">${pressure} = 1019</msg>
+<status status="PASS" starttime="20210223 00:28:26.602" endtime="20210223 00:28:26.602"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Atmospheric Pressure: ${pressure} hpa \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.602" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.602" endtime="20210223 00:28:26.602"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["humidity"]}</arg>
+</arguments>
+<assign>
+<var>${humidity}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.602" level="INFO">${humidity} = 87</msg>
+<status status="PASS" starttime="20210223 00:28:26.602" endtime="20210223 00:28:26.602"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Humidity: ${humidity} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.618" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.618" endtime="20210223 00:28:26.618"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["clouds"]["all"]}</arg>
+</arguments>
+<assign>
+<var>${cloudiness}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.618" level="INFO">${cloudiness} = 90</msg>
+<status status="PASS" starttime="20210223 00:28:26.618" endtime="20210223 00:28:26.618"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Cloudiness: ${cloudiness} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.618" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.618" endtime="20210223 00:28:26.618"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Conditions: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.634" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.634" endtime="20210223 00:28:26.634"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.634" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.634" endtime="20210223 00:28:26.634"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.634" endtime="20210223 00:28:26.634"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["speed"]}</arg>
+</arguments>
+<assign>
+<var>${speed}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.634" level="INFO">${speed} = 3.09</msg>
+<status status="PASS" starttime="20210223 00:28:26.634" endtime="20210223 00:28:26.634"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Speed: ${longitude} meter/sec \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.649" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.649" endtime="20210223 00:28:26.649"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.649" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.649" endtime="20210223 00:28:26.649"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.649" endtime="20210223 00:28:26.649"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["deg"]}</arg>
+</arguments>
+<assign>
+<var>${direction}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.649" level="INFO">${direction} = 220</msg>
+<status status="PASS" starttime="20210223 00:28:26.649" endtime="20210223 00:28:26.649"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Direction: ${direction} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.665" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.665" endtime="20210223 00:28:26.665"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Codes: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.665" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.665" endtime="20210223 00:28:26.665"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.665" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.665" endtime="20210223 00:28:26.665"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.665" endtime="20210223 00:28:26.681"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["weather"]}</arg>
+</arguments>
+<assign>
+<var>${weather_list}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.681" level="INFO">${weather_list} = [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}]</msg>
+<status status="PASS" starttime="20210223 00:28:26.681" endtime="20210223 00:28:26.681"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${weather_list}[0]</arg>
+</arguments>
+<assign>
+<var>${first_element}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.681" level="INFO">${first_element} = {'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}</msg>
+<status status="PASS" starttime="20210223 00:28:26.681" endtime="20210223 00:28:26.681"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["id"]}</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.681" level="INFO">${id} = 804</msg>
+<status status="PASS" starttime="20210223 00:28:26.681" endtime="20210223 00:28:26.681"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Id: ${id} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.681" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.681" endtime="20210223 00:28:26.696"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.696" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.696" endtime="20210223 00:28:26.696"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.696" endtime="20210223 00:28:26.696"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["main"]}</arg>
+</arguments>
+<assign>
+<var>${condition}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.696" level="INFO">${condition} = Clouds</msg>
+<status status="PASS" starttime="20210223 00:28:26.696" endtime="20210223 00:28:26.696"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition: ${condition} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.712" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.696" endtime="20210223 00:28:26.712"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.712" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.712" endtime="20210223 00:28:26.712"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.712" endtime="20210223 00:28:26.712"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["description"]}</arg>
+</arguments>
+<assign>
+<var>${description}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.712" level="INFO">${description} = overcast clouds</msg>
+<status status="PASS" starttime="20210223 00:28:26.712" endtime="20210223 00:28:26.712"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Description: ${description} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.712" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.712" endtime="20210223 00:28:26.727"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.727" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.727" endtime="20210223 00:28:26.727"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.727" endtime="20210223 00:28:26.727"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["icon"]}</arg>
+</arguments>
+<assign>
+<var>${icon}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.727" level="INFO">${icon} = 04n</msg>
+<status status="PASS" starttime="20210223 00:28:26.727" endtime="20210223 00:28:26.727"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Icon: ${icon} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.774" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.774" endtime="20210223 00:28:26.774"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.790" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.790" endtime="20210223 00:28:26.790"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${icon}@2x.png</arg>
+</arguments>
+<assign>
+<var>${icon1}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.790" level="INFO">${icon1} = 04n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:26.790" endtime="20210223 00:28:26.790"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>http://openweathermap.org/img/wn/${icon1}</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20210223 00:28:26.790" level="INFO">${url} = http://openweathermap.org/img/wn/04n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:26.790" endtime="20210223 00:28:26.790"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:26.790" level="INFO">Opening browser 'chrome' to base url 'http://openweathermap.org/img/wn/04n@2x.png'.</msg>
+<status status="PASS" starttime="20210223 00:28:26.790" endtime="20210223 00:28:29.874"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${SCREENSHOT_NAME}-${place}.png</arg>
+</arguments>
+<assign>
+<var>${screenshot_filename}</var>
+</assign>
+<msg timestamp="20210223 00:28:29.890" level="INFO">${screenshot_filename} = icon-London.png</msg>
+<status status="PASS" starttime="20210223 00:28:29.888" endtime="20210223 00:28:29.890"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${dir}/${screenshot_filename}</arg>
+</arguments>
+<assign>
+<var>${fullPATH}</var>
+</assign>
+<msg timestamp="20210223 00:28:29.897" level="INFO">${fullPATH} = C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results/icon-London.png</msg>
+<status status="PASS" starttime="20210223 00:28:29.895" endtime="20210223 00:28:29.897"></status>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<arguments>
+<arg>tag:img</arg>
+<arg>filename=${fullPATH}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:30.291" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../icon-London.png"&gt;&lt;img src="../../icon-London.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:29.904" endtime="20210223 00:28:30.292"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${screenshot_filename}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:30.319" level="INFO">${screenshot_filename} = icon-London.png</msg>
+<status status="PASS" starttime="20210223 00:28:30.318" endtime="20210223 00:28:30.320"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210223 00:28:32.342" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210223 00:28:30.327" endtime="20210223 00:28:32.342"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210223 00:28:32.420" endtime="20210223 00:28:34.686"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.686" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:34.686" endtime="20210223 00:28:34.686"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.290" endtime="20210223 00:28:34.686"></status>
+</kw>
+<kw name="Embed the Screenshot File" library="Resources">
+<doc>This custom keyword will help in embed the external screenshot file in the report</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/${screenshot_filename}"&gt;Weather Icon Screeshot&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.702" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/icon-London.png"&gt;Weather Icon Screeshot&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:34.686" endtime="20210223 00:28:34.702"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.686" endtime="20210223 00:28:34.702"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.087" endtime="20210223 00:28:34.702"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Completion of executing the test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.702" level="INFO">Completion of executing the test case</msg>
+<status status="PASS" starttime="20210223 00:28:34.702" endtime="20210223 00:28:34.702"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:26.087" endtime="20210223 00:28:34.717" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="Getting current weather conditions for place Mexico">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Started execution of test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.733" level="INFO">Started execution of test case</msg>
+<status status="PASS" starttime="20210223 00:28:34.733" endtime="20210223 00:28:34.733"></status>
+</kw>
+<kw name="Weather Test1">
+<tags>
+<tag>Place</tag>
+</tags>
+<doc>This testcase will return the weather condition detailed report for a given city</doc>
+<arguments>
+<arg>Mexico</arg>
+</arguments>
+<kw name="Allure Reports Directory" library="Resources">
+<doc>This custom keyword will help in finding AllureReports directory and empties it if exists</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</arg>
+</arguments>
+<assign>
+<var>${path}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.733" level="INFO">${path} = C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</msg>
+<status status="PASS" starttime="20210223 00:28:34.733" endtime="20210223 00:28:34.733"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Directory Should Exist</arg>
+<arg>path=${path}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Directory Should Exist" library="OperatingSystem">
+<doc>Fails unless the given path points to an existing directory.</doc>
+<arguments>
+<arg>path=${path}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.733" level="FAIL">Directory 'C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\AllureReports' does not exist.</msg>
+<status status="FAIL" starttime="20210223 00:28:34.733" endtime="20210223 00:28:34.733"></status>
+</kw>
+<msg timestamp="20210223 00:28:34.749" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20210223 00:28:34.733" endtime="20210223 00:28:34.749"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'True'</arg>
+<arg>Empty Directory</arg>
+<arg>path=${path}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:34.749" endtime="20210223 00:28:34.749"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.733" endtime="20210223 00:28:34.749"></status>
+</kw>
+<kw name="Getting current weather conditions by giving place name" library="Resources">
+<doc>This custom keyword will return the current weather conditions of a place given</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>q=${place}</arg>
+<arg>units=metric</arg>
+<arg>appid=${API_KEY}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.749" level="INFO">${params} = {'q': 'Mexico', 'units': 'metric', 'appid': 'c5ac5d3cf978348e15794044cbb52f0d'}</msg>
+<status status="PASS" starttime="20210223 00:28:34.749" endtime="20210223 00:28:34.749"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${REQUEST_URI}</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.905" level="INFO">GET Request : url=http://api.openweathermap.org//data/2.5/weather?q=Mexico&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ path_url=//data/2.5/weather?q=Mexico&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210223 00:28:34.905" level="INFO">GET Response : url=http://api.openweathermap.org//data/2.5/weather?q=Mexico&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ status=200, reason=OK 
+ body={"coord":{"lon":120.7198,"lat":15.0646},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"base":"stations","main":{"temp":26,"feels_like":29.35,"temp_min":26,"temp_max":26,"pressure":1010,"humidity":73},"visibility":8000,"wind":{"speed":1.03,"deg":360},"rain":{"1h":0.96},"clouds":{"all":90},"dt":1614020315,"sys":{"type":1,"id":8152,"country":"PH","sunrise":1614032276,"sunset":1614074606},"timezone":28800,"id":1699805,"name":"Mexico","cod":200} 
+ </msg>
+<msg timestamp="20210223 00:28:34.905" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:34.749" endtime="20210223 00:28:34.905"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.921" level="INFO">${actual_code} = 200</msg>
+<status status="PASS" starttime="20210223 00:28:34.905" endtime="20210223 00:28:34.921"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:34.921" endtime="20210223 00:28:34.921"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Success Message: The Open Weather Map API is working fine for the place-${place} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.921" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.921" endtime="20210223 00:28:34.921"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.936" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.936" endtime="20210223 00:28:34.936"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.936" level="INFO">${body} = {"coord":{"lon":120.7198,"lat":15.0646},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"base":"stations","main":{"temp":26,"feels_like":29.35,"temp_min":26,"temp_max":26,...</msg>
+<status status="PASS" starttime="20210223 00:28:34.936" endtime="20210223 00:28:34.936"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json_dict}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.936" level="INFO">${json_dict} = {'coord': {'lon': 120.7198, 'lat': 15.0646}, 'weather': [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}], 'base': 'stations', 'main': {'temp': 26, 'feels_like': 29.35, 'temp_m...</msg>
+<status status="PASS" starttime="20210223 00:28:34.936" endtime="20210223 00:28:34.936"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.952" level="INFO">${json_dict} = {'coord': {'lon': 120.7198, 'lat': 15.0646}, 'weather': [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}], 'base': 'stations', 'main': {'temp': 26, 'feels_like': 29.35, 'temp_m...</msg>
+<status status="PASS" starttime="20210223 00:28:34.952" endtime="20210223 00:28:34.952"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.749" endtime="20210223 00:28:34.952"></status>
+</kw>
+<kw name="Entering weather details for a particular place in the report" library="Resources">
+<doc>This custom keyword will enter the values in the report text file</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<assign>
+<var>${json_string}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.952" level="INFO">${json_string} = {'coord': {'lon': 120.7198, 'lat': 15.0646}, 'weather': [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}], 'base': 'stations', 'main': {'temp': 26, 'feels_like': 29.35, 'temp_m...</msg>
+<status status="PASS" starttime="20210223 00:28:34.952" endtime="20210223 00:28:34.952"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The below is the current weather conditions of the place-${place} in string format: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.952" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.952" endtime="20210223 00:28:34.952"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>${json_string}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.967" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.967" endtime="20210223 00:28:34.967"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.967" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.967" endtime="20210223 00:28:34.967"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>The Weather Details in pretty detailed format are given below: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.967" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.967" endtime="20210223 00:28:34.967"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.983" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.983" endtime="20210223 00:28:34.983"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.983" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.983" endtime="20210223 00:28:34.983"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.983" endtime="20210223 00:28:34.983"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["name"]}</arg>
+</arguments>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.983" level="INFO">${city} = Mexico</msg>
+<status status="PASS" starttime="20210223 00:28:34.983" endtime="20210223 00:28:34.983"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Name: ${city} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.999" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.999" endtime="20210223 00:28:34.999"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:34.999" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:34.999" endtime="20210223 00:28:34.999"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.999" endtime="20210223 00:28:34.999"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["id"]}</arg>
+</arguments>
+<assign>
+<var>${cityid}</var>
+</assign>
+<msg timestamp="20210223 00:28:34.999" level="INFO">${cityid} = 1699805</msg>
+<status status="PASS" starttime="20210223 00:28:34.999" endtime="20210223 00:28:34.999"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>City Id: ${cityid} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.014" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.014" endtime="20210223 00:28:35.014"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["country"]}</arg>
+</arguments>
+<assign>
+<var>${countrycode}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.014" level="INFO">${countrycode} = PH</msg>
+<status status="PASS" starttime="20210223 00:28:35.014" endtime="20210223 00:28:35.014"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Country Code: ${countrycode} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.014" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.014" endtime="20210223 00:28:35.014"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Geographic Coordinates: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.030" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.030" endtime="20210223 00:28:35.030"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.030" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.030" endtime="20210223 00:28:35.030"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.030" endtime="20210223 00:28:35.030"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lat"]}</arg>
+</arguments>
+<assign>
+<var>${latitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.030" level="INFO">${latitude} = 15.0646</msg>
+<status status="PASS" starttime="20210223 00:28:35.030" endtime="20210223 00:28:35.030"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Latitude: ${latitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.046" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.046" endtime="20210223 00:28:35.046"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.077" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.077" endtime="20210223 00:28:35.077"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.077" endtime="20210223 00:28:35.077"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["coord"]["lon"]}</arg>
+</arguments>
+<assign>
+<var>${longitude}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.077" level="INFO">${longitude} = 120.7198</msg>
+<status status="PASS" starttime="20210223 00:28:35.077" endtime="20210223 00:28:35.077"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Longitude: ${longitude} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.092" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.092" endtime="20210223 00:28:35.092"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time Details: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.092" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.092" endtime="20210223 00:28:35.092"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.092" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.092" endtime="20210223 00:28:35.092"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.092" endtime="20210223 00:28:35.108"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["dt"]}</arg>
+</arguments>
+<assign>
+<var>${unix_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.108" level="INFO">${unix_timestamp} = 1614020315</msg>
+<status status="PASS" starttime="20210223 00:28:35.108" endtime="20210223 00:28:35.108"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${unix_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt1}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.108" level="INFO">${dt1} = 2021-02-23  12:28:35 AM</msg>
+<status status="PASS" starttime="20210223 00:28:35.108" endtime="20210223 00:28:35.108"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Date and Time: ${dt1}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.124" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.108" endtime="20210223 00:28:35.124"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.124" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.124" endtime="20210223 00:28:35.124"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.124" endtime="20210223 00:28:35.124"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunrise"]}</arg>
+</arguments>
+<assign>
+<var>${sunrise_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.124" level="INFO">${sunrise_timestamp} = 1614032276</msg>
+<status status="PASS" starttime="20210223 00:28:35.124" endtime="20210223 00:28:35.124"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunrise_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt2}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.139" level="INFO">${dt2} = 2021-02-23  03:47:56 AM</msg>
+<status status="PASS" starttime="20210223 00:28:35.124" endtime="20210223 00:28:35.139"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunrise Time: ${dt2}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.139" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.139" endtime="20210223 00:28:35.139"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.139" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.139" endtime="20210223 00:28:35.139"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.139" endtime="20210223 00:28:35.139"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["sys"]["sunset"]}</arg>
+</arguments>
+<assign>
+<var>${sunset_timestamp}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.155" level="INFO">${sunset_timestamp} = 1614074606</msg>
+<status status="PASS" starttime="20210223 00:28:35.155" endtime="20210223 00:28:35.155"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_datetime</arg>
+<arg>${sunset_timestamp}</arg>
+</arguments>
+<assign>
+<var>${dt3}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.155" level="INFO">${dt3} = 2021-02-23  03:33:26 PM</msg>
+<status status="PASS" starttime="20210223 00:28:35.155" endtime="20210223 00:28:35.155"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Sunset Time: ${dt3}\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.155" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.155" endtime="20210223 00:28:35.155"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature Values: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.155" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.155" endtime="20210223 00:28:35.155"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.171" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.171" endtime="20210223 00:28:35.171"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.171" endtime="20210223 00:28:35.171"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp"]}</arg>
+</arguments>
+<assign>
+<var>${tempinCelsius}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.171" level="INFO">${tempinCelsius} = 26</msg>
+<status status="PASS" starttime="20210223 00:28:35.171" endtime="20210223 00:28:35.171"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Celsius: ${tempinCelsius} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.171" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.171" endtime="20210223 00:28:35.186"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Fahrenheit</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinFahrenheit}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.186" level="INFO">${tempinFahrenheit} = 78.8</msg>
+<status status="PASS" starttime="20210223 00:28:35.186" endtime="20210223 00:28:35.186"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.186" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.186" endtime="20210223 00:28:35.186"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.186" endtime="20210223 00:28:35.186"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Fahrenheit: ${tempinFahrenheit} `F \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.202" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.186" endtime="20210223 00:28:35.202"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${v}</arg>
+<arg>get_temp_in_Kelvin</arg>
+<arg>${tempinCelsius}</arg>
+</arguments>
+<assign>
+<var>${tempinKelvin}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.202" level="INFO">${tempinKelvin} = 299.15</msg>
+<status status="PASS" starttime="20210223 00:28:35.202" endtime="20210223 00:28:35.202"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.202" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.202" endtime="20210223 00:28:35.202"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.202" endtime="20210223 00:28:35.202"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Temperature in Kelvin: ${tempinKelvin} kelvin \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.264" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.217" endtime="20210223 00:28:35.264"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.264" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.264" endtime="20210223 00:28:35.264"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.264" endtime="20210223 00:28:35.264"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_min"]}</arg>
+</arguments>
+<assign>
+<var>${min_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.280" level="INFO">${min_temp} = 26</msg>
+<status status="PASS" starttime="20210223 00:28:35.264" endtime="20210223 00:28:35.280"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Minimum Temperature in Celsius: ${min_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.280" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.280" endtime="20210223 00:28:35.280"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.280" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.280" endtime="20210223 00:28:35.280"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.280" endtime="20210223 00:28:35.296"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["temp_max"]}</arg>
+</arguments>
+<assign>
+<var>${max_temp}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.296" level="INFO">${max_temp} = 26</msg>
+<status status="PASS" starttime="20210223 00:28:35.296" endtime="20210223 00:28:35.296"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Maximum Temperature in Celsius: ${max_temp} `C \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.296" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.296" endtime="20210223 00:28:35.296"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["pressure"]}</arg>
+</arguments>
+<assign>
+<var>${pressure}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.296" level="INFO">${pressure} = 1010</msg>
+<status status="PASS" starttime="20210223 00:28:35.296" endtime="20210223 00:28:35.296"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Atmospheric Pressure: ${pressure} hpa \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.311" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.311" endtime="20210223 00:28:35.311"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["main"]["humidity"]}</arg>
+</arguments>
+<assign>
+<var>${humidity}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.311" level="INFO">${humidity} = 73</msg>
+<status status="PASS" starttime="20210223 00:28:35.311" endtime="20210223 00:28:35.311"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Humidity: ${humidity} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.311" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.311" endtime="20210223 00:28:35.311"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["clouds"]["all"]}</arg>
+</arguments>
+<assign>
+<var>${cloudiness}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.327" level="INFO">${cloudiness} = 90</msg>
+<status status="PASS" starttime="20210223 00:28:35.311" endtime="20210223 00:28:35.327"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Cloudiness: ${cloudiness} % \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.327" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.327" endtime="20210223 00:28:35.327"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Conditions: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.327" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.327" endtime="20210223 00:28:35.327"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.342" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.342" endtime="20210223 00:28:35.342"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.327" endtime="20210223 00:28:35.342"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["speed"]}</arg>
+</arguments>
+<assign>
+<var>${speed}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.342" level="INFO">${speed} = 1.03</msg>
+<status status="PASS" starttime="20210223 00:28:35.342" endtime="20210223 00:28:35.342"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Speed: ${longitude} meter/sec \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.342" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.342" endtime="20210223 00:28:35.342"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.358" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.358" endtime="20210223 00:28:35.358"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.358" endtime="20210223 00:28:35.358"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["wind"]["deg"]}</arg>
+</arguments>
+<assign>
+<var>${direction}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.358" level="INFO">${direction} = 360</msg>
+<status status="PASS" starttime="20210223 00:28:35.358" endtime="20210223 00:28:35.358"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Wind Direction: ${direction} degrees \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.358" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.358" endtime="20210223 00:28:35.358"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Codes: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.374" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.374" endtime="20210223 00:28:35.374"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.374" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.374" endtime="20210223 00:28:35.374"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.374" endtime="20210223 00:28:35.374"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${json_dict["weather"]}</arg>
+</arguments>
+<assign>
+<var>${weather_list}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.374" level="INFO">${weather_list} = [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}]</msg>
+<status status="PASS" starttime="20210223 00:28:35.374" endtime="20210223 00:28:35.374"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${weather_list}[0]</arg>
+</arguments>
+<assign>
+<var>${first_element}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.389" level="INFO">${first_element} = {'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}</msg>
+<status status="PASS" starttime="20210223 00:28:35.389" endtime="20210223 00:28:35.389"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["id"]}</arg>
+</arguments>
+<assign>
+<var>${id}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.389" level="INFO">${id} = 500</msg>
+<status status="PASS" starttime="20210223 00:28:35.389" endtime="20210223 00:28:35.389"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition Id: ${id} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.389" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.389" endtime="20210223 00:28:35.389"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.405" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.405" endtime="20210223 00:28:35.405"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.405" endtime="20210223 00:28:35.405"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["main"]}</arg>
+</arguments>
+<assign>
+<var>${condition}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.405" level="INFO">${condition} = Rain</msg>
+<status status="PASS" starttime="20210223 00:28:35.405" endtime="20210223 00:28:35.405"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Condition: ${condition} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.405" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.405" endtime="20210223 00:28:35.405"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.421" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.421" endtime="20210223 00:28:35.421"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.421" endtime="20210223 00:28:35.421"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["description"]}</arg>
+</arguments>
+<assign>
+<var>${description}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.421" level="INFO">${description} = light rain</msg>
+<status status="PASS" starttime="20210223 00:28:35.421" endtime="20210223 00:28:35.421"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Description: ${description} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.421" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.421" endtime="20210223 00:28:35.421"></status>
+</kw>
+<kw name="Tab space in Text file" library="Resources">
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>\t</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.436" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.436" endtime="20210223 00:28:35.436"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:35.436" endtime="20210223 00:28:35.436"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${first_element["icon"]}</arg>
+</arguments>
+<assign>
+<var>${icon}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.436" level="INFO">${icon} = 10n</msg>
+<status status="PASS" starttime="20210223 00:28:35.436" endtime="20210223 00:28:35.436"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>Weather Icon: ${icon} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.436" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.436" endtime="20210223 00:28:35.436"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results1.txt</arg>
+<arg>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.452" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.452" endtime="20210223 00:28:35.452"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${icon}@2x.png</arg>
+</arguments>
+<assign>
+<var>${icon1}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.452" level="INFO">${icon1} = 10n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:35.452" endtime="20210223 00:28:35.452"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>http://openweathermap.org/img/wn/${icon1}</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20210223 00:28:35.452" level="INFO">${url} = http://openweathermap.org/img/wn/10n@2x.png</msg>
+<status status="PASS" starttime="20210223 00:28:35.452" endtime="20210223 00:28:35.452"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:35.467" level="INFO">Opening browser 'chrome' to base url 'http://openweathermap.org/img/wn/10n@2x.png'.</msg>
+<status status="PASS" starttime="20210223 00:28:35.467" endtime="20210223 00:28:39.953"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${SCREENSHOT_NAME}-${place}.png</arg>
+</arguments>
+<assign>
+<var>${screenshot_filename}</var>
+</assign>
+<msg timestamp="20210223 00:28:39.967" level="INFO">${screenshot_filename} = icon-Mexico.png</msg>
+<status status="PASS" starttime="20210223 00:28:39.965" endtime="20210223 00:28:39.968"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${dir}/${screenshot_filename}</arg>
+</arguments>
+<assign>
+<var>${fullPATH}</var>
+</assign>
+<msg timestamp="20210223 00:28:39.977" level="INFO">${fullPATH} = C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results/icon-Mexico.png</msg>
+<status status="PASS" starttime="20210223 00:28:39.975" endtime="20210223 00:28:39.977"></status>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<arguments>
+<arg>tag:img</arg>
+<arg>filename=${fullPATH}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:40.375" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../icon-Mexico.png"&gt;&lt;img src="../../icon-Mexico.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:39.983" endtime="20210223 00:28:40.375"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${screenshot_filename}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:40.379" level="INFO">${screenshot_filename} = icon-Mexico.png</msg>
+<status status="PASS" starttime="20210223 00:28:40.378" endtime="20210223 00:28:40.379"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210223 00:28:42.392" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210223 00:28:40.383" endtime="20210223 00:28:42.392"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210223 00:28:42.392" endtime="20210223 00:28:44.609"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:44.609" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results1.txt"&gt;Results Data File&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:44.609" endtime="20210223 00:28:44.609"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.952" endtime="20210223 00:28:44.609"></status>
+</kw>
+<kw name="Embed the Screenshot File" library="Resources">
+<doc>This custom keyword will help in embed the external screenshot file in the report</doc>
+<arguments>
+<arg>${place}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/${screenshot_filename}"&gt;Weather Icon Screeshot&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:44.624" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/icon-Mexico.png"&gt;Weather Icon Screeshot&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:44.609" endtime="20210223 00:28:44.624"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:44.609" endtime="20210223 00:28:44.624"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.733" endtime="20210223 00:28:44.624"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Completion of executing the test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:44.624" level="INFO">Completion of executing the test case</msg>
+<status status="PASS" starttime="20210223 00:28:44.624" endtime="20210223 00:28:44.624"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:34.717" endtime="20210223 00:28:44.624" critical="yes"></status>
+</test>
+<doc>Testing to validate different use cases on Open Weather Map API</doc>
+<metadata>
+<item name="Input Data File">http://localhost:63342/Training/OpenWeatherMap/TestData/testdata.csv</item>
+</metadata>
+<status status="PASS" starttime="20210223 00:28:14.585" endtime="20210223 00:28:44.655"></status>
+</suite>
+<suite id="s1-s2" name="TC2 getdataonlatandlon" source="C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\TestSuites\TC2_getdataonlatandlon.robot">
+<kw name="Create a session" library="Resources" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${BASE_URL}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.772" level="INFO">Creating Session using : alias=mysession, url=http://api.openweathermap.org/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210223 00:28:16.772" endtime="20210223 00:28:16.772"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.772" endtime="20210223 00:28:16.772"></status>
+</kw>
+<kw name="Delete Sessions" library="Resources" type="teardown">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20210223 00:28:17.272" level="INFO">Delete All Sessions</msg>
+<status status="PASS" starttime="20210223 00:28:17.272" endtime="20210223 00:28:17.272"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.272" endtime="20210223 00:28:17.272"></status>
+</kw>
+<test id="s1-s2-t1" name="Weather Test2">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Started execution of test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.819" level="INFO">Started execution of test case</msg>
+<status status="PASS" starttime="20210223 00:28:16.819" endtime="20210223 00:28:16.819"></status>
+</kw>
+<kw name="Allure Reports Directory" library="Resources">
+<doc>This custom keyword will help in finding AllureReports directory and empties it if exists</doc>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</arg>
+</arguments>
+<assign>
+<var>${path}</var>
+</assign>
+<msg timestamp="20210223 00:28:16.819" level="INFO">${path} = C:/Users/HOME/PycharmProjects/Training/OpenWeatherMap/AllureReports</msg>
+<status status="PASS" starttime="20210223 00:28:16.819" endtime="20210223 00:28:16.819"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Directory Should Exist</arg>
+<arg>path=${path}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Directory Should Exist" library="OperatingSystem">
+<doc>Fails unless the given path points to an existing directory.</doc>
+<arguments>
+<arg>path=${path}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:16.819" level="FAIL">Directory 'C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\AllureReports' does not exist.</msg>
+<status status="FAIL" starttime="20210223 00:28:16.819" endtime="20210223 00:28:16.819"></status>
+</kw>
+<msg timestamp="20210223 00:28:16.819" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20210223 00:28:16.819" endtime="20210223 00:28:16.819"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'True'</arg>
+<arg>Empty Directory</arg>
+<arg>path=${path}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:16.835" endtime="20210223 00:28:16.835"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.819" endtime="20210223 00:28:16.835"></status>
+</kw>
+<kw name="Getting current weather conditions by giving geographical coordinates" library="Resources">
+<doc>This custom keyword will return the current weather conditions of a place for the given geographical coordinates</doc>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>lat=${LAT}</arg>
+<arg>lon=${LON}</arg>
+<arg>units=metric</arg>
+<arg>appid=${API_KEY}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20210223 00:28:16.835" level="INFO">${params} = {'lat': '12.98', 'lon': '77.6', 'units': 'metric', 'appid': 'c5ac5d3cf978348e15794044cbb52f0d'}</msg>
+<status status="PASS" starttime="20210223 00:28:16.835" endtime="20210223 00:28:16.835"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${REQUEST_URI}</arg>
+<arg>params=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.163" level="INFO">GET Request : url=http://api.openweathermap.org//data/2.5/weather?lat=12.98&amp;lon=77.6&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ path_url=//data/2.5/weather?lat=12.98&amp;lon=77.6&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210223 00:28:17.163" level="INFO">GET Response : url=http://api.openweathermap.org//data/2.5/weather?lat=12.98&amp;lon=77.6&amp;units=metric&amp;appid=c5ac5d3cf978348e15794044cbb52f0d 
+ status=200, reason=OK 
+ body={"coord":{"lon":77.6,"lat":12.98},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],"base":"stations","main":{"temp":21.16,"feels_like":21.14,"temp_min":20,"temp_max":22,"pressure":1018,"humidity":83},"visibility":6000,"wind":{"speed":4.12,"deg":110},"clouds":{"all":75},"dt":1614020297,"sys":{"type":1,"id":9205,"country":"IN","sunrise":1614042531,"sunset":1614085047},"timezone":19800,"id":1277333,"name":"Bengaluru","cod":200} 
+ </msg>
+<msg timestamp="20210223 00:28:17.163" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:16.835" endtime="20210223 00:28:17.163"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${actual_code}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.178" level="INFO">${actual_code} = 200</msg>
+<status status="PASS" starttime="20210223 00:28:17.178" endtime="20210223 00:28:17.178"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${actual_code}</arg>
+<arg>${expected_code}</arg>
+</arguments>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.194" level="INFO">${body} = {"coord":{"lon":77.6,"lat":12.98},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],"base":"stations","main":{"temp":21.16,"feels_like":21.14,"temp_min":20,"temp_max":2...</msg>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json_dict}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.194" level="INFO">${json_dict} = {'coord': {'lon': 77.6, 'lat': 12.98}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.16, 'feels_like': 21.14, 'temp...</msg>
+<status status="PASS" starttime="20210223 00:28:17.194" endtime="20210223 00:28:17.194"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.210" level="INFO">${json_dict} = {'coord': {'lon': 77.6, 'lat': 12.98}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.16, 'feels_like': 21.14, 'temp...</msg>
+<status status="PASS" starttime="20210223 00:28:17.210" endtime="20210223 00:28:17.210"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.210" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.210" endtime="20210223 00:28:17.210"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+<arg>Success Message: The Open Weather Map API is working fine for the given lat-${LAT} and lon-${LON} \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.225" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.225"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.225" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.225"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:16.835" endtime="20210223 00:28:17.225"></status>
+</kw>
+<kw name="Entering weather details for particular geographical coodrinates in the report" library="Resources">
+<doc>This custom keyword will enter the values in the report text file</doc>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${json_dict}</arg>
+</arguments>
+<assign>
+<var>${json_string}</var>
+</assign>
+<msg timestamp="20210223 00:28:17.241" level="INFO">${json_string} = {'coord': {'lon': 77.6, 'lat': 12.98}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.16, 'feels_like': 21.14, 'temp...</msg>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+<arg>The below is the current weather conditions of the place having lat-${LAT} and lon-${LON} in string format: \n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.241" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.241" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+<arg>${json_string}</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.241" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.241" endtime="20210223 00:28:17.241"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${dir}/results2.txt</arg>
+<arg>\n</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.256" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt"&gt;C:\Users\HOME\PycharmProjects\Training\OpenWeatherMap\Results\results2.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.256"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results2.txt"&gt;Results Data File&lt;a&gt;</arg>
+<arg>html=True</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.256" level="INFO" html="yes">&lt;a href="http://localhost:63342/Training/OpenWeatherMap/Results/results2.txt"&gt;Results Data File&lt;a&gt;</msg>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.256"></status>
+</kw>
+<status status="PASS" starttime="20210223 00:28:17.225" endtime="20210223 00:28:17.256"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Completion of executing the test case</arg>
+</arguments>
+<msg timestamp="20210223 00:28:17.272" level="INFO">Completion of executing the test case</msg>
+<status status="PASS" starttime="20210223 00:28:17.256" endtime="20210223 00:28:17.272"></status>
+</kw>
+<doc>This testcase will return the weather condition detailed report for a given Geographical Coordinates</doc>
+<tags>
+<tag>Geographical Coordinates</tag>
+</tags>
+<status status="PASS" starttime="20210223 00:28:16.772" endtime="20210223 00:28:17.272" critical="no"></status>
+</test>
+<doc>Testing to validate different use cases on Open Weather Map API</doc>
+<status status="PASS" starttime="20210223 00:28:14.585" endtime="20210223 00:28:17.288"></status>
+</suite>
+<doc>[https://pabot.org/?ref=log|Pabot] result from 2 executions.</doc>
+<status status="PASS" starttime="20210223 00:28:14.538" endtime="20210223 00:28:44.734"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="4" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" info="non-critical">GeographicalCoordinates</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" id="s1" name="TestSuites">TestSuites</stat>
+<stat pass="3" fail="0" id="s1-s1" name="TC1 getcurrentdata">TestSuites.TC1 getcurrentdata</stat>
+<stat pass="1" fail="0" id="s1-s2" name="TC2 getdataonlatandlon">TestSuites.TC2 getdataonlatandlon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

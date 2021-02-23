@@ -1,0 +1,4 @@
+Success Message: The Open Weather Map API is working fine for the given lat-12.98 and lon-77.6 
+
+The below is the current weather conditions of the place having lat-12.98 and lon-77.6 in string format: 
+{'coord': {'lon': 77.6, 'lat': 12.98}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.16, 'feels_like': 21.14, 'temp_min': 20, 'temp_max': 22, 'pressure': 1018, 'humidity': 83}, 'visibility': 6000, 'wind': {'speed': 4.12, 'deg': 110}, 'clouds': {'all': 75}, 'dt': 1614020297, 'sys': {'type': 1, 'id': 9205, 'country': 'IN', 'sunrise': 1614042531, 'sunset': 1614085047}, 'timezone': 19800, 'id': 1277333, 'name': 'Bengaluru', 'cod': 200}

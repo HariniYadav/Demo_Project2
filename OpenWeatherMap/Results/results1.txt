@@ -1,0 +1,100 @@
+Success Message: The Open Weather Map API is working fine for the place-Tirupati 
+
+The below is the current weather conditions of the place-Tirupati in string format: 
+{'coord': {'lon': 79.4167, 'lat': 13.65}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 21.29, 'feels_like': 24.38, 'temp_min': 21.29, 'temp_max': 21.29, 'pressure': 1014, 'humidity': 88, 'sea_level': 1014, 'grnd_level': 994}, 'visibility': 10000, 'wind': {'speed': 0.35, 'deg': 223}, 'clouds': {'all': 99}, 'dt': 1614020274, 'sys': {'country': 'IN', 'sunrise': 1614042124, 'sunset': 1614084582}, 'timezone': 19800, 'id': 1254360, 'name': 'Tirumala - Tirupati', 'cod': 200}
+The Weather Details in pretty detailed format are given below: 
+City Details: 
+	City Name: Tirumala - Tirupati 
+	City Id: 1254360 
+Country Code: IN 
+Geographic Coordinates: 
+	Latitude: 13.65 degrees 
+	Longitude: 79.4167 degrees 
+Date and Time Details: 
+	Date and Time: 2021-02-23  12:27:54 AM
+	Sunrise Time: 2021-02-23  06:32:04 AM
+	Sunset Time: 2021-02-23  06:19:42 PM
+Temperature Values: 
+	Temperature in Celsius: 21.29 `C 
+	Temperature in Fahrenheit: 70.32 `F 
+	Temperature in Kelvin: 294.44 kelvin 
+	Minimum Temperature in Celsius: 21.29 `C 
+	Maximum Temperature in Celsius: 21.29 `C 
+Atmospheric Pressure: 1014 hpa 
+Humidity: 88 % 
+Cloudiness: 99 % 
+Wind Conditions: 
+	Wind Speed: 79.4167 meter/sec 
+	Wind Direction: 223 degrees 
+Weather Condition Codes: 
+	Weather Condition Id: 804 
+	Weather Condition: Clouds 
+	Weather Description: overcast clouds 
+	Weather Icon: 04n 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Success Message: The Open Weather Map API is working fine for the place-London 
+
+The below is the current weather conditions of the place-London in string format: 
+{'coord': {'lon': -0.1257, 'lat': 51.5085}, 'weather': [{'id': 804, 'main': 'Clouds', 'description': 'overcast clouds', 'icon': '04n'}], 'base': 'stations', 'main': {'temp': 10.26, 'feels_like': 7.68, 'temp_min': 9.44, 'temp_max': 11.11, 'pressure': 1019, 'humidity': 87}, 'visibility': 7000, 'wind': {'speed': 3.09, 'deg': 220}, 'clouds': {'all': 90}, 'dt': 1614019501, 'sys': {'type': 1, 'id': 1414, 'country': 'GB', 'sunrise': 1613977229, 'sunset': 1614014870}, 'timezone': 0, 'id': 2643743, 'name': 'London', 'cod': 200}
+The Weather Details in pretty detailed format are given below: 
+City Details: 
+	City Name: London 
+	City Id: 2643743 
+Country Code: GB 
+Geographic Coordinates: 
+	Latitude: 51.5085 degrees 
+	Longitude: -0.1257 degrees 
+Date and Time Details: 
+	Date and Time: 2021-02-23  12:15:01 AM
+	Sunrise Time: 2021-02-22  12:30:29 PM
+	Sunset Time: 2021-02-22  10:57:50 PM
+Temperature Values: 
+	Temperature in Celsius: 10.26 `C 
+	Temperature in Fahrenheit: 50.47 `F 
+	Temperature in Kelvin: 283.41 kelvin 
+	Minimum Temperature in Celsius: 9.44 `C 
+	Maximum Temperature in Celsius: 11.11 `C 
+Atmospheric Pressure: 1019 hpa 
+Humidity: 87 % 
+Cloudiness: 90 % 
+Wind Conditions: 
+	Wind Speed: -0.1257 meter/sec 
+	Wind Direction: 220 degrees 
+Weather Condition Codes: 
+	Weather Condition Id: 804 
+	Weather Condition: Clouds 
+	Weather Description: overcast clouds 
+	Weather Icon: 04n 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Success Message: The Open Weather Map API is working fine for the place-Mexico 
+
+The below is the current weather conditions of the place-Mexico in string format: 
+{'coord': {'lon': 120.7198, 'lat': 15.0646}, 'weather': [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10n'}], 'base': 'stations', 'main': {'temp': 26, 'feels_like': 29.35, 'temp_min': 26, 'temp_max': 26, 'pressure': 1010, 'humidity': 73}, 'visibility': 8000, 'wind': {'speed': 1.03, 'deg': 360}, 'rain': {'1h': 0.96}, 'clouds': {'all': 90}, 'dt': 1614020315, 'sys': {'type': 1, 'id': 8152, 'country': 'PH', 'sunrise': 1614032276, 'sunset': 1614074606}, 'timezone': 28800, 'id': 1699805, 'name': 'Mexico', 'cod': 200}
+The Weather Details in pretty detailed format are given below: 
+City Details: 
+	City Name: Mexico 
+	City Id: 1699805 
+Country Code: PH 
+Geographic Coordinates: 
+	Latitude: 15.0646 degrees 
+	Longitude: 120.7198 degrees 
+Date and Time Details: 
+	Date and Time: 2021-02-23  12:28:35 AM
+	Sunrise Time: 2021-02-23  03:47:56 AM
+	Sunset Time: 2021-02-23  03:33:26 PM
+Temperature Values: 
+	Temperature in Celsius: 26 `C 
+	Temperature in Fahrenheit: 78.8 `F 
+	Temperature in Kelvin: 299.15 kelvin 
+	Minimum Temperature in Celsius: 26 `C 
+	Maximum Temperature in Celsius: 26 `C 
+Atmospheric Pressure: 1010 hpa 
+Humidity: 73 % 
+Cloudiness: 90 % 
+Wind Conditions: 
+	Wind Speed: 120.7198 meter/sec 
+	Wind Direction: 360 degrees 
+Weather Condition Codes: 
+	Weather Condition Id: 500 
+	Weather Condition: Rain 
+	Weather Description: light rain 
+	Weather Icon: 10n 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
